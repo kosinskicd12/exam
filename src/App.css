@@ -25,6 +25,10 @@
 .button{
     width: 460px;
 }
+.errormessage{
+    background-color: red;
+    color: white;
+}
 .filter{
     margin-top: 20px;
 }

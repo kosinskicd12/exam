@@ -7,7 +7,7 @@ const Filter = () => {
             <h3>Usernames Repositories</h3>
             <p>Filter repos by primary language</p>
             <div className="row">
-                <div class="large-12 columns">
+                <div className="large-12 columns">
                     <label>Select Box</label>
                     <select>
                         <option value="husker">

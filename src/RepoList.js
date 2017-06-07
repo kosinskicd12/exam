@@ -1,7 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { array, func } from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const RepoList = () => {
+
+
+const RepoList = (props) => {
+    const tableRows = props.repos.map((repoObj) => {
+        return(
+             <tr className="repolist" key={repoObj.id}>
+                    <td>{repoObj.name}</td>
+                </tr>
+        )
+    })
     return (
         <table className="table">
             <thead>
@@ -10,19 +21,15 @@ const RepoList = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr className="repolist">
-                    <td><a>Example Repo1</a></td>
-                </tr>
-                <tr className="repolist">
-                    <td><a>Example Repo2</a></td>
-                </tr>
-                <tr className="repolist">
-                    <td><a>Example Repo3</a></td>
-                </tr>
+              {tableRows}
             </tbody>
         </table>
     )
 }
 
+RepoList.proppTypes = {
+    repos: array.isRequired,
+    details: func.isRequired
+}
 
 export default RepoList;
