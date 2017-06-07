@@ -9,7 +9,7 @@ const RepoList = (props) => {
     const tableRows = props.repos.map((repoObj) => {
         return(
              <tr className="repolist" key={repoObj.id}>
-                    <td>{repoObj.name}</td>
+                    <td><Link onClick={() => props.onClick(repoObj.name)}to={`/${repoObj.name}/repo`}> {repoObj.name}</Link></td>
                 </tr>
         )
     })

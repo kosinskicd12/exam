@@ -28,7 +28,7 @@ class App extends Component {
           this.setState({
             repos: response.data,
             userNotFound: "",
-            
+
           })
         } else {
           this.setState({
@@ -42,21 +42,29 @@ class App extends Component {
         })
       })
   }
-  handleUserClick = (user) => {
-
-        
-    
+  handleUserClick = (repo) => {
+      axios.get(`https://api.github.com/repos/kosinskicd12/${repo}/languages`)
+        .then((response) => {
+          this.setState({
+            favoriteLanguage:response.data
+          })
+        })
   }
   render() {
     return (
-      <div className="App">
-        <h1> Github viewer </h1>
-        <button>Home</button>
-        <Form passStateToApp={this.getStateFromForm} error={this.state.userNotFound}/>
-        <Filter />
-        <RepoList repos={this.state.repos} onClick={this.handleUserClick}/>
-        <RepoDetails />
-      </div>
+      <Router>
+        <div className="App">
+          <h1> Github viewer </h1>
+          <button>Home</button>
+          <Route path="/" render={(props) => {
+            return <Form {...props} passStateToApp={this.getStateFromForm} error={this.state.userNotFound} />
+          }}
+          />
+          <Filter />
+          <RepoList repos={this.state.repos} onClick={this.handleUserClick} />
+          <RepoDetails details={this.state.favoriteLanguage}/>
+        </div>
+      </Router>
     );
   }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const RepoDetails = (props) => {
-    /*const tableRows = props.repos.map((detailObj) => {
+    const tableRows = props.details.map((detailObj) => {
         return(
                <tr className="repodetails">
                         <td>32</td>
@@ -10,7 +10,7 @@ const RepoDetails = (props) => {
                         <td>Javascript</td>
                     </tr>
         )
-    })*/
+    })
     return (
         <div>
             <h3>Username details</h3>
@@ -23,11 +23,12 @@ const RepoDetails = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="repodetails">
+                    {/*<tr className="repodetails">
                         <td>32</td>
                         <td class="text-right">6</td>
                         <td>Javascript</td>
-                    </tr>
+                    </tr>*/}
+                    {tableRows}
                     
                 </tbody>
             </table>
